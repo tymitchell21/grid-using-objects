@@ -50,6 +50,7 @@ Grid.prototype.neighborCells = function (cell) {
         for (let neighborColumn = cellColumn-1; neighborColumn <= cellColumn+1; neighborColumn++) {
             if (neighborRow === cellRow && neighborColumn === cellColumn) continue
             if (neighborRow>=this.rowNum || neighborColumn>=this.columnNum) continue
+            if (neighborRow<0 || neighborColumn<0) continue
             neighborsArray.push(this.findCell(neighborRow, neighborColumn))
         }
     }

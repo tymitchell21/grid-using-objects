@@ -8,7 +8,6 @@ function Grid (rowNum, columnNum) {
 
     this.createGrid()
     this.drawGrid('destination')
-    this.addEventListener()
 }
 
 Grid.prototype.createRow = function (row) {

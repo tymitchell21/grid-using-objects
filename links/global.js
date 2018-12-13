@@ -49,7 +49,7 @@ Grid.prototype.neighborCells = function (cell) {
     for (let neighborRow = cellRow-1; neighborRow <= cellRow+1; neighborRow++) {
         for (let neighborColumn = cellColumn-1; neighborColumn <= cellColumn+1; neighborColumn++) {
             if (neighborRow === cellRow && neighborColumn === cellColumn) continue
-            if (!this.findCell(neighborRow, neighborColumn)) continue
+            if (neighborRow>=this.rowNum || neighborColumn>=this.columnNum) continue
             neighborsArray.push(this.findCell(neighborRow, neighborColumn))
         }
     }
@@ -82,6 +82,6 @@ Cell.prototype.changeClass = function (oldClass, newClass) {
 
 const grid = new Grid(columnNum, rowNum)
 
-grid.neighborCells(grid.findCell(2,4)).map (x => {
+grid.neighborCells(grid.findCell(9,9)).map (x => {
     x.changeClass('cell', 'newClass')
 })
